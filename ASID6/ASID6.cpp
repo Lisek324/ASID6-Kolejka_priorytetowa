@@ -84,24 +84,6 @@ void popByIndex(element** head, int index) {
 	}
 }
 
-void removeItem(element** head, int index) {
-	if (index == 0) {
-		popFront(head);
-	}
-	else {
-		element* currentElement = *head;                //przypisz pierwszy element listy do pomocniczego wskaźnika
-		element* tmp;
-
-		int i = 0;
-		while (currentElement->nextElement != NULL && i < index - 1) {//wykonuj tak długo aż currentElement odwołująca się do następnej komórki nie będzie pusta oraz index-1 jest mniejszy od i
-			currentElement = currentElement->nextElement;//przesuń o następną komórkę
-			i++;
-		}
-		tmp = currentElement->nextElement;                  //do wskaźnika tymczasowego przypisz następną komórkę
-		currentElement->nextElement = tmp->nextElement;     //do wskaźnika wskazującego na następną komórkę, przypisz wskaźnik tmp wskazujący na następną komórkę
-		delete tmp;                                         //usuń wkaźnik wskazujący na pamięć w tmp
-	}
-}
 void pushItem(element** head, int number, int prio) {
 	
 	element* currentElement = *head;            
